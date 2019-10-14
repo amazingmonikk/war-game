@@ -28,3 +28,31 @@
 //     * if the two new cards are also a tie war is declared again
 //     * and the process repeats again until the player has a card of heigher value
 //     * the first player to capture 52 cards wins
+
+
+class Deck {
+    constructor() {
+        this.cards = []
+    }
+
+    createDeck() {
+        const card = (suit, rank) => {
+            this.name = rank + " of " + suit
+            this.suit = suit
+            this.rank = rank
+            //console.log({ name: this.name, suit: this.suit, rank: this.rank })
+
+        }
+
+        const suits = ["hearts", "spades", "clubs", "diamonds"];
+        const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "A"];
+
+        for (let s = 0; s < suits.length; s++) {
+            for (let r = 0; r < ranks.length; r++) {
+                this.cards.push(card(suits[s], ranks[r]))
+            }
+        }
+    }
+}
+const deck = new Deck()
+deck.createDeck()
