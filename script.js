@@ -2,7 +2,8 @@
 // - deck of cards
 // - two players
 
-// 1.
+// 1. 
+//     * create a deck
 //     * shuffle the deck
 //     * deal 26 cards to each players(keep your cards face down)
 
@@ -27,29 +28,3 @@
 //     * if the two new cards are also a tie war is declared again
 //     * and the process repeats again until the player has a card of heigher value
 //     * the first player to capture 52 cards wins
-
-class Deck {
-    constructor() {
-        this.cards = []
-    }
-
-    createDeck() {
-        const suits = ["hearts", "spades", "clubs", "diamonds"]
-        const ranks = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
-        for (let s = 0; s < suits.length; s++) {
-            for (let r = 0; r < ranks.length; r++) {
-                deck.push(this.suits[s], this.ranks[r])
-                console.log(deck)
-                return deck
-            }
-        }
-    }
-}
-
-
-// - move deck creation functionality into a method of Deck
-// - create cards property of Deck (array of cards from above)
-// - create draw method of Deck to return random card
-
-const deck = new Deck()
-deck.createDeck()
