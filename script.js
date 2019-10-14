@@ -36,24 +36,21 @@ class Deck {
     }
 
     createDeck() {
-        const card = (suit, rank, score) => {
+        const card = (suit, rank) => {
             this.name = rank + " of " + suit
             this.suit = suit
             this.rank = rank
-            this.score = score
-            console.log({ name: this.name, suit: this.suit, rank: this.rank })
+            console.log({ name: this.name, suit: this.suit })
 
         }
 
         const suits = ["hearts", "spades", "clubs", "diamonds"];
         const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "A"];
-        const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13];
+        // const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13];
 
         for (let s = 0; s < suits.length; s++) {
             for (let r = 0; r < ranks.length; r++) {
-                for (let k = 0; k < scores.length; k++) {
-                    this.cards.push(card(suits[s], ranks[r], scores[k]))
-                }
+                this.cards.push(card(suits[s], ranks[r]))
             }
         }
     }
