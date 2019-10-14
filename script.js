@@ -55,5 +55,16 @@ class Deck {
         }
     }
 }
+
+//draw_deck() {
+
+// // var random_number = Math.floor(Math.random() * this.cards)
+// random_number.push(index.splice(0, 0));
+// // index = random_number
+// console.log(random_number)
+//}
+
+
 const deck = new Deck()
 deck.createDeck()
+//deck.draw_deck()
