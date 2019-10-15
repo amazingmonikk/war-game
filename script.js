@@ -29,42 +29,60 @@
 //     * and the process repeats again until the player has a card of heigher value
 //     * the first player to capture 52 cards wins
 
+class Cards {
+    constructor(suit, rank, scores) {
+        this.suit = suit
+        this.rank = rank
+        this.scores = scores
+        //console.log({ name: this.name, suit: this.suit })
+    }
+}
 
 class Deck {
     constructor() {
         this.cards = []
+        this.length = 52
+        this.createDeck()
     }
 
     createDeck() {
-        const card = (suit, rank) => {
-            this.name = rank + " of " + suit
-            this.suit = suit
-            this.rank = rank
-            console.log({ name: this.name, suit: this.suit })
-
-        }
-
         const suits = ["hearts", "spades", "clubs", "diamonds"];
-        const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "A"];
-        // const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13];
+        const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "A"];
+        const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
         for (let s = 0; s < suits.length; s++) {
             for (let r = 0; r < ranks.length; r++) {
-                this.cards.push(card(suits[s], ranks[r]))
+                const newCard = new Cards(suits[s], ranks[r], scores[r])
+                this.cards.push(newCard)
             }
         }
     }
+    shuffleCards() {
+        let shuffleDeck = []
+        for (let i = 0; i < 52; i++) {
+            var deckCards = this.cards.length
+            let randomCard = Math.floor(Math.random * deckCards)
+            let shuffleCards = this.cards.splice(randomCard, 1)[0]
+            shuffleDeck.push(shuffleCards)
+        }
+        this.cards = shuffleDeck
+    }
 }
 
-//draw_deck() {
+class Players {
+    constructor() {
+        this.player1 = []
+        this.player2 = []
+        this.shuffleDeck = []
+    }
+    divideCarde() {
 
-// // var random_number = Math.floor(Math.random() * this.cards)
-// random_number.push(index.splice(0, 0));
-// // index = random_number
-// console.log(random_number)
-//}
+    }
+}
+
 
 
 const deck = new Deck()
 deck.createDeck()
-//deck.draw_deck()
+deck.shuffleCards()
+console.log(deck.cards)
